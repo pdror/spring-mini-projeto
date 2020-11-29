@@ -8,6 +8,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
+@AllArgsConstructor
 public class Aluno {
     private String matricula;
     private String nome;
@@ -15,11 +16,5 @@ public class Aluno {
 
     public Aluno(String nome, String curso) {
         this(UUID.randomUUID().toString(), nome, curso);
-    }
-
-    public Aluno(String string, String nome2, String curso2) {
-        this.matricula = string;
-        this.nome = nome2;
-        this.curso = curso2;
     }
 }
