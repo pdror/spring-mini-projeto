@@ -18,10 +18,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @Builder
 @Data
-@Document(collection = "alunos")
-public class Aluno {
+@Document(collection = "professores")
+public class Professor {
     @Id
     private String matricula;
     private String nome;
-    private String curso;
+    private String area;
+    private String formacao;
 }

@@ -1,7 +1,5 @@
 package org.edu.academic.model;
 
-import java.util.UUID;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -18,10 +16,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @Builder
 @Data
-@Document(collection = "alunos")
-public class Aluno {
+@Document(collection = "projetos")
+public class Projeto {
     @Id
-    private String matricula;
+    private String id;
     private String nome;
-    private String curso;
+    private String descricao;
+    private Professor professor;
+    private String[] integrantes;
 }
