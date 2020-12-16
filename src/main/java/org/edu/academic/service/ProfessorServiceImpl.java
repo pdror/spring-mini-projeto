@@ -32,6 +32,7 @@ public class ProfessorServiceImpl implements ProfessorService {
 
     @Override
     public Professor putProfessor(String matricula, Professor professor) {
+        professor.setMatricula(matricula);
         return this.professorRepository.save(professor);
     }
 

@@ -2,7 +2,9 @@ package org.edu.academic.service;
 
 import java.util.List;
 
+import org.edu.academic.model.Professor;
 import org.edu.academic.model.Projeto;
+import org.edu.academic.repository.ProfessorRepository;
 import org.edu.academic.repository.ProjetoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,9 @@ public class ProjetoServiceImpl implements ProjetoService {
 
     @Autowired
     private ProjetoRepository projetoRepository;
+
+    @Autowired
+    private ProfessorRepository professorRepository;
 
 
     @Override
@@ -28,6 +33,12 @@ public class ProjetoServiceImpl implements ProjetoService {
 
     @Override
     public Projeto postProjeto(Projeto projeto) {
+        Professor professor = this.professorRepository
+            .findById(projeto.getProfessor().getMatricula())
+            .orElseThrow(() -> new IllegalArgumentException("Professor coordenador do projeto inválido"));
+        
+        projeto.setProfessor(professor);
+        
         return this.projetoRepository.save(projeto);
     }
 

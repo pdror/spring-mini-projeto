@@ -48,6 +48,7 @@ public class ProjetoController {
     @ApiOperation(value = "Atualiza os dados de um projeto no Banco de Dados")
     @PutMapping("/{id}")
     public Projeto putProjeto(@PathVariable String id, @RequestBody Projeto projeto) throws Exception {
+        projeto.setId(id);
         return this.projetoService.putProjeto(id, projeto);
     }
 

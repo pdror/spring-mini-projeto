@@ -32,6 +32,7 @@ public class AlunoServiceImpl implements AlunoService {
 
     @Override
     public Aluno putAluno(String matricula, Aluno aluno) {
+        aluno.setMatricula(matricula);
         return this.alunoRepository.save(aluno);
     }
 
