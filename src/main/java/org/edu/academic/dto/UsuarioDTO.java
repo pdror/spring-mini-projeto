@@ -1,6 +1,5 @@
 package org.edu.academic.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
